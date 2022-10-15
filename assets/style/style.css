@@ -13,6 +13,34 @@ textarea {
   padding: 10px;
 }
 
+/*Time blocks*/
+.container {
+  display: flex; 
+  justify-content: center;
+}
+#time {
+  border-top: dotted;
+  border-bottom: dotted;
+  margin-bottom: 0%;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5%;
+}
+#inputFiled {
+  background-color: lightgray;
+  border: none;
+  padding-right: 70%;
+}
+#saveBtn{
+  padding-left: 4%;
+  color: rgb(230, 220, 220);
+  background-color: #06aed5;
+  padding-right: 4%;
+  border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
+/*----------*/
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
