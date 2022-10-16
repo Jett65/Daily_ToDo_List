@@ -17,11 +17,12 @@ textarea {
 .container {
   display: flex; 
   justify-content: center;
+  margin-bottom: 5px;
 }
 #time {
   border-top: dotted;
   border-bottom: dotted;
-  margin-bottom: 0%;
+  margin: 0px;
   padding-top: 5px;
   padding-right: 5px;
   padding-bottom: 5%;
