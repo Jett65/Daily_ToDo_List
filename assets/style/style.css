@@ -12,13 +12,11 @@ textarea {
   border-left: 1px solid black;
   padding: 10px;
 }
-
 /*Time blocks*/
-.container {
-  display: flex; 
-  justify-content: center;
-  margin-bottom: 5px;
-}
+
+  
+
+/*
 #time {
   border-top: dotted;
   border-bottom: dotted;
@@ -40,7 +38,7 @@ textarea {
   border-top-right-radius: 10%;
   border-bottom-right-radius: 10%;
 }
-/*----------*/
+----------*/
 
 .jumbotron {
   text-align: center;
