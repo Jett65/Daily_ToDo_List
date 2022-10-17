@@ -1,9 +1,8 @@
 class TimeBlock {
-    constructor(name, time, date, localSave) {
+    constructor(name, time, date) {
         this.name = name;
         this.time = time;
         this.date = date;
-        this.localSave = localSave;
     }
 
     displayBlocks() {
@@ -33,7 +32,13 @@ class TimeBlock {
         $(`#saveBtn${this.name}`).css("color", "white");
         $(`#saveBtn${this.name}`).css("border-top-right-radius", "10%");
         $(`#saveBtn${this.name}`).css("border-bottom-right-radius", "10%");
+        // Checks if there is anything in localStorage
+        var savedData = localStorage.getItem(this.name);
+        if (savedData){
+            console.log("True")
+        }
     }
+
     statusColor() {
         // Change the color of the timeblock for the past, present or future
         var currentTime = moment().format("lll");
@@ -46,23 +51,30 @@ class TimeBlock {
             $(`#inputBox${this.name}`).css("background-color", "rgb(244, 255, 91)");
         }
     }
-    onClick() {
-        // Button click function 
-        $(`#saveBtn${this.name}`).click(function() {
-            localStorage.setItem(this.name,
-                JSON.stringify(this.date));
-                console.log($(`#inputBox${this.name}`).val)
+    onClick () {
+        var thName = this.name;
+        var objs = {
+            inputVal: $(`#inputBox${this.name}`).val(),
+            date: this.date
+        };
+        $(`#saveBtn${this.name}`).click(function () {
+            localStorage.setItem(thName,
+                JSON.stringify(objs) 
+            )
+            console.log(objs)
+            
         });
     }
+
 }
 
-var test = new TimeBlock("9am", "9:00 AM", moment().format("MMM DD YYYY"),"");
+var test = new TimeBlock("9am", "9:00 AM", moment().format("MMM D Y"));
 test.displayBlocks()
 test.statusColor()
 test.onClick()
-
 
 // Displays the current Day date
 $('#currentDay').text(moment().format("MMMM Do YYYY"));
 
 // TODO: Make the this.date save the date to localStorage when the saveBtn is clicked
+// TODO: Make a hover for the Btn
