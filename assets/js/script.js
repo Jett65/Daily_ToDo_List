@@ -12,7 +12,7 @@ class TimeBlock {
         $(`.${this.name}`).append(`<p id="time${this.name}">${this.name}</p>`);
         $(`.${this.name}`).append(`<input type="text" id="inputBox${this.name}">`);
         $(`.${this.name}`).append(`<button id="saveBtn${this.name}"><i class="fa fa-save"></i></button>`);
-        // style 
+        // style div
         $(`.${this.name}`).css("display", "flex");
         $(`.${this.name}`).css("justify-content", "center");
         $(`.${this.name}`).css("margin-bottom", "5px");
@@ -37,22 +37,31 @@ class TimeBlock {
     statusColor() {
         // Change the color of the timeblock for the past, present or future
         var currentTime = moment().format("lll");
-        var dowDateTime = moment(`${this.date} ${this.time}`)
-        console.log(currentTime)
-        console.log(dowDateTime)
+        var dowDateTime = moment(`${this.date} ${this.time}`);
         if (dowDateTime.isAfter(currentTime)) {
             $(`#inputBox${this.name}`).css("background-color", "lightgray");
         } else if (dowDateTime.isBefore(currentTime)) {
             $(`#inputBox${this.name}`).css("background-color", "rgb(255, 90, 90)");
-        } else
+        } else {
             $(`#inputBox${this.name}`).css("background-color", "rgb(244, 255, 91)");
-
+        }
+    }
+    onClick() {
+        // Button click function 
+        $(`#saveBtn${this.name}`).click(function() {
+            localStorage.setItem(this.name,
+                JSON.stringify(this.date));
+                console.log($(`#inputBox${this.name}`).val)
+        });
     }
 }
 
-var test = new TimeBlock("9am", "1:25 AM", "oct 17, 2022" );
-test.displayBlocks();
-test.statusColor();
+var test = new TimeBlock("9am", "9:00 AM", moment().format("MMM DD YYYY"),"");
+test.displayBlocks()
+test.statusColor()
+test.onClick()
+
+
 // Displays the current Day date
 $('#currentDay').text(moment().format("MMMM Do YYYY"));
 
