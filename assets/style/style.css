@@ -12,40 +12,13 @@ textarea {
   border-left: 1px solid black;
   padding: 10px;
 }
-/*Time blocks*/
-
-  
-
-/*
-#time {
-  border-top: dotted;
-  border-bottom: dotted;
-  margin: 0px;
-  padding-top: 5px;
-  padding-right: 5px;
-  padding-bottom: 5%;
-}
-#inputFiled {
-  background-color: lightgray;
-  border: none;
-  padding-right: 70%;
-}
-#saveBtn{
-  padding-left: 4%;
-  color: rgb(230, 220, 220);
-  background-color: #06aed5;
-  padding-right: 4%;
-  border-top-right-radius: 10%;
-  border-bottom-right-radius: 10%;
-}
-----------*/
 
 .jumbotron {
   text-align: center;
   background-color: transparent;
   color: black;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 10px solid rgb(0, 0, 0);
 }
 
 .description {
