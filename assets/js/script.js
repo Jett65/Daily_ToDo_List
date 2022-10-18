@@ -74,7 +74,7 @@ class TimeBlock {
             localStorage.setItem(thName,
                 JSON.stringify(objs)
             );
-            console.log(localStorage.getItem(thName));
+            location.reload();
         });
     }
 }
