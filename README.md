@@ -22,5 +22,5 @@ N/A
 Please refer to the LICENSE in the repo.
 
 ## Screen Shots
-![Screenshot of site](.\assets\images\img2.png)
-![Screenshot of site](.\assets\images\img1.png)
+![Screenshot of site](./assets/images/img2.png)
+![Screenshot of site](./assets/images/img1.png)
