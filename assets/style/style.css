@@ -21,6 +21,10 @@ textarea {
   border-bottom: 10px solid rgb(0, 0, 0);
 }
 
+.container {
+  margin-bottom: 32px;
+}
+
 .description {
   white-space: pre-wrap;
 }

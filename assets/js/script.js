@@ -45,20 +45,23 @@ class TimeBlock {
 
     statusColor() {
         // Change the color of the timeblock for the past, present or future
-        var currentTime = moment().format("lll");
+        var ti = moment().format("h:mm A");
+        var da = moment().format("MMM DD YYYY");
+        var currentTime = moment(`${da} ${ti}`);
         var dateWithTime = moment(`${this.date} ${this.time}`);
+        var nextHour = moment(`${da} ${moment(dateWithTime).add(1, 'hour').format('h:00 A')}`);
         if ($(`#inputBox${this.name}`).val() == "") {
             $(`#inputBox${this.name}`).css("background-color", "lightgray");
         } else {
             if (dateWithTime.isAfter(currentTime)) {
                 $(`#inputBox${this.name}`).css("background-color", "lightgreen");
+            } else if (currentTime.isBetween(dateWithTime, nextHour) || currentTime.isSame(dateWithTime)) {
+                $(`#inputBox${this.name}`).css("background-color", "rgb(244, 255, 91)");
+
             } else if (dateWithTime.isBefore(currentTime)) {
                 $(`#inputBox${this.name}`).css("background-color", "rgb(255, 90, 90)");
-            } else if (dateWithTime.isSame(currentTime)) {
-                $(`#inputBox${this.name}`).css("background-color", "rgb(244, 255, 91)");
-            } else {
-                $(`#inputBox${this.name}`).css("background-color", "lightgray");
             }
+            console.log(dateWithTime)
         }
     }
 
@@ -104,13 +107,13 @@ var elevenAM = new TimeBlock("11am", "11:00 AM", date,);
 callTieBlock(elevenAM);
 var twelvePM = new TimeBlock("12am", "12:00 PM", date,);
 callTieBlock(twelvePM);
-var onePM = new TimeBlock("1PM", "1:00 PM", date,);
+var onePM = new TimeBlock("1pm", "1:00 PM", date,);
 callTieBlock(onePM);
-var twoPM = new TimeBlock("2PM", "2:00 PM", date,);
+var twoPM = new TimeBlock("2pm", "2:00 PM", date,);
 callTieBlock(twoPM);
-var threePM = new TimeBlock("3PM", "3:00 PM", date,);
+var threePM = new TimeBlock("3pm", "3:00 PM", date,);
 callTieBlock(threePM);
-var fourPM = new TimeBlock("4PM", "4:00 PM", date,);
+var fourPM = new TimeBlock("4pm", "5:00 PM", date,);
 callTieBlock(fourPM);
-var fivePM = new TimeBlock("5PM", "5:00 PM", date,);
+var fivePM = new TimeBlock("5pm", "5:00 PM", date,);
 callTieBlock(fivePM);
